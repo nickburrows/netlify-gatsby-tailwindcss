@@ -4,6 +4,11 @@
  * See: https://www.gatsbyjs.com/docs/ssr-apis/
  */
 
-exports.onRenderBody = ({ setHtmlAttributes }) => {
-  setHtmlAttributes({ lang: `en` })
-}
+const React = require("react");
+
+const HtmlAttributes = {
+  lang: "en",
+};
+exports.onRenderBody = ({ setHtmlAttributes }, pluginOptions) => {
+  setHtmlAttributes(HtmlAttributes);
+};

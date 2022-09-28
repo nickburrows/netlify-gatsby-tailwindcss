@@ -1,12 +1,11 @@
-import * as React from "react"
-import { Link } from "gatsby"
+import * as React from "react";
+import { Link } from "gatsby";
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+import Seo from "../components/Seo";
 
 const UsingSSR = ({ serverData }) => {
   return (
-    <Layout>
+    <>
       <h1>
         This page is <b>rendered server-side</b>
       </h1>
@@ -28,28 +27,28 @@ const UsingSSR = ({ serverData }) => {
         .
       </p>
       <Link to="/">Go back to the homepage</Link>
-    </Layout>
-  )
-}
+    </>
+  );
+};
 
-export const Head = () => <Seo title="Using SSR" />
+export const Head = () => <Seo title="Using SSR" />;
 
-export default UsingSSR
+export default UsingSSR;
 
 export async function getServerData() {
   try {
-    const res = await fetch(`https://dog.ceo/api/breed/shiba/images/random`)
+    const res = await fetch(`https://dog.ceo/api/breed/shiba/images/random`);
     if (!res.ok) {
-      throw new Error(`Response failed`)
+      throw new Error(`Response failed`);
     }
     return {
       props: await res.json(),
-    }
+    };
   } catch (error) {
     return {
       status: 500,
       headers: {},
       props: {},
-    }
+    };
   }
 }
