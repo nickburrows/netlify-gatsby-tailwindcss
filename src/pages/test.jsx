@@ -3,30 +3,6 @@ import Seo from "../components/Seo";
 import { generatePwd } from "../components/PasswordGenerator";
 // import { ToggleSwitch } from "flowbite-react";
 
-const myToggle = toggleData.map((data, i) => (
-  <Fragment key={i}>
-    <div className="flex items-center w-full mb-5">
-      <label htmlFor={name} className="flex items-center w-full cursor-pointer">
-        <span className="mr-2 font-medium text-gray-500 sm:mr-10 text-md sm:text-2xl">
-          {data.label}
-        </span>
-        <div className="relative ml-auto">
-          <input
-            type="checkbox"
-            defaultValue
-            id={data.name}
-            className="sr-only peer"
-            onChange={handleCheck}
-            ref={data.reference}
-            value={data.reference}
-          />
-          <div className="w-14 h-8 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
-        </div>
-      </label>
-    </div>
-  </Fragment>
-));
-
 // const CheckList = () => {
 //   const [checked, setChecked] = useState([]);
 //   const checkList = ["Apple", "Banana", "Tea", "Coffee"];
@@ -101,6 +77,31 @@ const TestPage = () => {
 
     { label: "Include Lowercase", name: "lowercase", reference: hasLowerCase },
   ];
+
+  const myToggle = toggleData.map((data, i) => (
+    <div className="flex items-center w-full mb-5" key={i}>
+      <label
+        htmlFor={data.name}
+        className="flex items-center w-full cursor-pointer"
+      >
+        <span className="mr-2 font-medium text-gray-500 sm:mr-10 text-md sm:text-2xl">
+          {data.label}
+        </span>
+        <div className="relative ml-auto">
+          <input
+            type="checkbox"
+            defaultValue
+            id={data.name}
+            className="sr-only peer"
+            onChange={handleCheck}
+            ref={data.reference}
+            value={data.reference}
+          />
+          <div className="w-14 h-8 bg-gray-200 rounded-full peer peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 dark:bg-gray-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-1 after:left-1 after:bg-white after:border-gray-300 after:border after:rounded-full after:h-6 after:w-6 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600" />
+        </div>
+      </label>
+    </div>
+  ));
 
   // Method Called on click of Generate Button
   const generatePassword = () => {
