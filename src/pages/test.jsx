@@ -93,7 +93,7 @@ const TestPage = () => {
             defaultValue
             id={data.name}
             className="sr-only peer"
-            onChange={handleCheck}
+            onChange={(event) => handleCheck(event)}
             ref={data.reference}
             value={data.reference}
           />
